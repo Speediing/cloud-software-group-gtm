@@ -7,12 +7,32 @@ function initials(bot: FleetBot) {
   return `${parts[0][0] || ""}${parts[parts.length - 1][0] || ""}`.toUpperCase();
 }
 
-function isLight(hex: string) {
-  if (!hex.startsWith("#") || hex.length < 7) return false;
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return (r * 299 + g * 587 + b * 114) / 1000 > 180;
+function inkOn(color: string) {
+  const oklch = color.match(/^oklch\(\s*(\d+(?:\.\d+)?)%/i);
+  if (oklch) return Number(oklch[1]) > 55 ? "#111" : "#fff";
+  if (!color.startsWith("#") || color.length < 7) return "#fff";
+  const r = parseInt(color.slice(1, 3), 16);
+  const g = parseInt(color.slice(3, 5), 16);
+  const b = parseInt(color.slice(5, 7), 16);
+  return (r * 299 + g * 587 + b * 114) / 1000 > 180 ? "#111" : "#fff";
+}
+
+function ComputerGlyph() {
+  return (
+    <svg className="org-computer" viewBox="0 0 24 24" aria-hidden>
+      <rect
+        x="3"
+        y="4.5"
+        width="18"
+        height="12"
+        rx="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path d="M8 20h8M12 16.5V20" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
 }
 
 function Box({
@@ -29,13 +49,16 @@ function Box({
         className="org-avatar"
         style={{
           background: bot.color,
-          color: isLight(bot.color) ? "#111" : "#fff",
+          color: inkOn(bot.color),
         }}
         aria-hidden
       >
         {initials(bot)}
       </span>
-      <span className="org-name">{bot.name}</span>
+      <span className="org-name">
+        {bot.seat ? null : <ComputerGlyph />}
+        {bot.name}
+      </span>
       <span className="org-blurb">{bot.blurb}</span>
     </>
   );
@@ -59,11 +82,11 @@ export function RosterChart() {
 
   return (
     <section id="roster" className="roster">
-      <h2>A background team for every sales rep</h2>
+      <h2>A fleet of agents, each with a computer</h2>
       <p className="section-lede">
-        The work itself is the trigger. A call starts, an email lands, or an
-        account enters the list — and the right agent picks it up. They keep
-        working after the laptop closes. Drafts stay drafts until the rep sends.
+        The work itself is the trigger. A meeting appears, a call ends, or a
+        customer question lands. The right agents pick it up and hand back a
+        finished draft. The seller stays in control.
       </p>
 
       <div className="org" role="tree">

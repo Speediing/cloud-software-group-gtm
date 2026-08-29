@@ -11,10 +11,10 @@ export function SiteNav() {
           Use cases
         </a>
         <a className="text-button" href="#compare">
-          Grok Bot comparison
+          How it differs
         </a>
         <a className="text-button" href="#testimonials">
-          Testimonials
+          Product proof
         </a>
       </nav>
     </header>

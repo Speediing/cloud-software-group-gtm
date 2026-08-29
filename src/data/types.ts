@@ -9,9 +9,9 @@ export type ClipId =
   | "08-chief-groupchat";
 
 export type JobId =
-  | "standardize-room"
-  | "legal-redlines"
-  | "attach-engine";
+  | "meeting-brief"
+  | "call-follow-up"
+  | "answer-desk";
 
 export type ParticipantRole = "you" | "bot";
 

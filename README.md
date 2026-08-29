@@ -1,10 +1,12 @@
-# Grok Bot for Datadog GTM
+# Grok Bot for Cloud Software Group
 
-Passworded site. Grok Bot from SpaceXAI, for Datadog GTM.
+Passworded leave-behind. Grok Bot from SpaceXAI, for Cloud Software Group sellers.
 
 ## What it is
 
-Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a light index of the clips and the public Grok Bot quote wall.
+Three GTM jobs on one page. Each job has a short problem, an interactive Grok Bot demo, and a finished artifact the seller reviews. Below that is a comparison table and the public Grok Bot quote wall.
+
+The site lockup is Cloud Software Group × SpaceXAI. It loads the official wordmark from `cloud.com`. See `docs/brand-provenance.md`.
 
 ## Run locally
 
@@ -16,16 +18,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). Default password is `land2expand` (override with `SITE_PASSWORD`).
 
-## Krista clips
+`SITE_PASSWORD` stays server-only. The app fails closed if it is missing. Do not add `NEXT_PUBLIC` for the password.
 
-Download into `private/media/krista-clips/` from the GitHub release (served only through the passworded `/api/media/...` route):
+## Clips
+
+Keep optional demo clips under `private/media/clips/`. The passworded `/api/media/...` route serves those files. Copy posters to `public/media/clips/` when you want stills on the page.
 
 ```bash
-gh release download krista-gtm-clips-720p-2026-08-26 \
-  --repo Speediing/grok-bot-quotes \
-  --dir private/media/krista-clips
+node scripts/sync-clips.mjs
 ```
 
 ## Deploy
 
-Preview only under the `jasonwiker` Vercel team, project name `datadog-cro`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.
+Preview stays passworded. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.

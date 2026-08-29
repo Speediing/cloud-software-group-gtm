@@ -7,8 +7,8 @@ function clip(
 ): Clip {
   return {
     id,
-    file: `/api/media/krista-clips/${id}.mp4`,
-    poster: `/media/krista-clips/${id}.jpg`,
+    file: `/api/media/clips/${id}.mp4`,
+    poster: `/media/clips/${id}.jpg`,
     title,
     caption,
   };

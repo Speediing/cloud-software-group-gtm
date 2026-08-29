@@ -31,207 +31,144 @@ export type ComputerBeat = {
   tabs: ChromeTab[];
 };
 
-const granola = { id: "granola", host: "granola.app", label: "Granola" };
-const figma = { id: "figma", host: "figma.com", label: "Figma" };
-const gmail = { id: "gmail", host: "mail.google.com", label: "Gmail" };
-const gong = { id: "gong", host: "app.gong.io", label: "Gong" };
-const sfdc = {
-  id: "sfdc",
-  host: "datadog.lightning.force.com",
-  label: "Salesforce",
-};
-const sheets = {
-  id: "sheets",
-  host: "docs.google.com",
-  label: "Sheets",
-};
-const slack = { id: "slack", host: "app.slack.com", label: "Slack" };
+const granola = { id: "granola", host: "granola.app", label: "Notes" };
+const figma = { id: "figma", host: "figma.com", label: "Slides" };
+const gmail = { id: "gmail", host: "mail.google.com", label: "Mail" };
+const sfdc = { id: "sfdc", host: "salesforce.com", label: "CRM" };
 const gdoc = { id: "gdoc", host: "docs.google.com", label: "Docs" };
-const linkedin = {
-  id: "linkedin",
-  host: "www.linkedin.com",
-  label: "LinkedIn",
+const web = {
+  id: "web",
+  host: "northstar.example",
+  label: "Public sources",
 };
-const web = { id: "web", host: "acme.com", label: "Acme" };
 
 export const SCREENS: Record<JobId, Record<string, ComputerBeat>> = {
-  "standardize-room": {
+  "meeting-brief": {
     m1: {
-      pill: "Opening Granola",
-      host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
-      site: "granola",
-      tabs: [granola, figma, gmail],
+      pill: "Opening the account record",
+      host: "salesforce.com",
+      path: "/account/northstar-systems",
+      title: "Northstar Systems",
+      site: "sfdc-account",
+      tabs: [sfdc, granola, web, figma],
     },
     m2: {
-      pill: "In Granola",
-      host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
-      site: "granola",
-      tabs: [granola, figma, gmail],
-    },
-    m3: {
-      pill: "Pulling Granola, still on the call",
-      host: "granola.app",
-      path: "/notes/acme-datadog",
-      title: "Acme <> Datadog",
-      site: "clip",
-      clip: "03-slides-granola",
-      tabs: [granola, figma, gmail],
-    },
-    m4: {
-      pill: "Writing their discovery into the deck",
-      host: "figma.com",
-      path: "/file/acme-next-meeting",
-      title: "Acme next meeting",
-      site: "figma",
-      tabs: [granola, figma, gmail],
-    },
-    m5: {
-      pill: "Drafting the one-pager",
-      host: "figma.com",
-      path: "/file/acme-leave-behind",
-      title: "Acme one-pager",
-      site: "figma",
-      tabs: [granola, figma, gmail],
-    },
-    m6: {
-      pill: "Building the inside note",
-      host: "figma.com",
-      path: "/file/acme-champion-packet",
-      title: "Inside note",
-      site: "figma",
-      tabs: [granola, figma, gmail],
-    },
-    m7: {
-      pill: "Drafting in Gmail, not sent",
-      host: "mail.google.com",
-      path: "/mail/u/0/#drafts",
-      title: "Drafts",
-      site: "gmail",
-      tabs: [granola, figma, gmail],
-    },
-    m8: {
-      pill: "Drafting in Gmail, not sent",
-      host: "mail.google.com",
-      path: "/mail/u/0/#drafts",
-      title: "Drafts",
-      site: "gmail",
-      tabs: [granola, figma, gmail],
-    },
-  },
-  "legal-redlines": {
-    m1: {
-      pill: "Opening Gmail",
-      host: "mail.google.com",
-      path: "/mail/u/0/#inbox",
-      title: "Inbox",
-      site: "gmail",
-      tabs: [gmail, gdoc],
-    },
-    m2: {
-      pill: "Drafting so you do not chase billing",
-      host: "mail.google.com",
-      path: "/mail/u/0/#inbox",
-      title: "Inbox",
-      site: "clip",
-      clip: "01-morning-inbox",
-      tabs: [gmail, gdoc],
-    },
-    m3: {
-      pill: "Drafting the morning reply, not sent",
-      host: "docs.google.com",
-      path: "/document/d/acme-invoices",
-      title: "Acme invoices INV-0080 · INV-0081",
-      site: "gdoc",
-      tabs: [gmail, gdoc],
-    },
-    m4: {
-      pill: "Drafting in Gmail, not sent",
-      host: "mail.google.com",
-      path: "/mail/u/0/#drafts",
-      title: "Drafts",
-      site: "gmail",
-      tabs: [gmail, gdoc],
-    },
-    m5: {
-      pill: "Drafting in Gmail, not sent",
-      host: "mail.google.com",
-      path: "/mail/u/0/#drafts",
-      title: "Drafts",
-      site: "gmail",
-      tabs: [gmail, gdoc],
-    },
-  },
-  "attach-engine": {
-    m1: {
-      pill: "Researching the account",
-      host: "acme.com",
-      path: "/careers/staff-sre",
-      title: "Staff SRE · Observability",
+      pill: "Checking approved public sources",
+      host: "northstar.example",
+      path: "/company",
+      title: "Northstar Systems",
       site: "research",
-      tabs: [web, gdoc, linkedin, gmail],
-    },
-    m2: {
-      pill: "Pulling public evidence of the pain",
-      host: "acme.com",
-      path: "/status",
-      title: "Acme status",
-      site: "clip",
-      clip: "02-prospecting-pg",
-      tabs: [web, gdoc, linkedin, gmail],
+      tabs: [sfdc, granola, web, figma],
     },
     m3: {
-      pill: "Writing the 3-why hypothesis",
-      host: "docs.google.com",
-      path: "/document/d/acme-3-why",
-      title: "Acme 3-why",
-      site: "gdoc",
-      tabs: [web, gdoc, linkedin, gmail],
+      pill: "Building the meeting brief",
+      host: "figma.com",
+      path: "/file/northstar-meeting-brief",
+      title: "Northstar Systems meeting brief",
+      site: "figma",
+      tabs: [sfdc, granola, web, figma],
     },
     m4: {
-      pill: "Naming who would care",
+      pill: "Drafting the agenda",
       host: "docs.google.com",
-      path: "/document/d/acme-3-why",
-      title: "Acme 3-why",
+      path: "/document/northstar-agenda",
+      title: "Northstar Systems agenda",
       site: "gdoc",
-      tabs: [web, gdoc, linkedin, gmail],
+      tabs: [sfdc, granola, web, figma, gdoc],
     },
     m5: {
-      pill: "Drafting LinkedIn, not sent",
-      host: "www.linkedin.com",
-      path: "/messaging/compose",
-      title: "Message",
-      site: "linkedin",
-      tabs: [web, gdoc, linkedin, gmail],
+      pill: "Brief ready for review",
+      host: "docs.google.com",
+      path: "/document/northstar-agenda",
+      title: "Northstar Systems agenda",
+      site: "gdoc",
+      tabs: [sfdc, granola, figma, gdoc],
     },
-    m6: {
-      pill: "Drafting in Gmail, not sent",
+  },
+  "call-follow-up": {
+    m1: {
+      pill: "Reading the approved call notes",
+      host: "granola.app",
+      path: "/notes/northstar-follow-up",
+      title: "Northstar Systems follow-up",
+      site: "granola",
+      tabs: [granola, gmail, sfdc, gdoc],
+    },
+    m2: {
+      pill: "Separating decisions from open questions",
+      host: "docs.google.com",
+      path: "/document/northstar-recap",
+      title: "Northstar Systems recap",
+      site: "gdoc",
+      tabs: [granola, gmail, sfdc, gdoc],
+    },
+    m3: {
+      pill: "Drafting the customer follow-up",
       host: "mail.google.com",
       path: "/mail/u/0/#drafts",
       title: "Drafts",
       site: "gmail",
-      tabs: [web, gdoc, linkedin, gmail],
+      tabs: [granola, gmail, sfdc, gdoc],
     },
-    m7: {
-      pill: "Building a page for this account",
-      host: "acme.datadoghq.dev",
-      path: "/acme-sev2",
-      title: "For Acme platform",
-      site: "page",
-      tabs: [web, gdoc, linkedin, gmail],
+    m4: {
+      pill: "Preparing the CRM update",
+      host: "salesforce.com",
+      path: "/account/northstar-systems",
+      title: "Northstar Systems",
+      site: "sfdc-account",
+      tabs: [granola, gmail, sfdc, gdoc],
     },
-    m8: {
-      pill: "Drafts parked. Nothing sent",
+    m5: {
+      pill: "Drafts parked for seller review",
       host: "mail.google.com",
       path: "/mail/u/0/#drafts",
       title: "Drafts",
       site: "gmail",
-      tabs: [web, gdoc, linkedin, gmail],
+      tabs: [granola, gmail, sfdc, gdoc],
     },
-  }
+  },
+  "answer-desk": {
+    m1: {
+      pill: "Opening the customer question",
+      host: "mail.google.com",
+      path: "/mail/u/0/#inbox",
+      title: "Inbox",
+      site: "gmail",
+      tabs: [gmail, gdoc, sfdc],
+    },
+    m2: {
+      pill: "Checking approved product and security guidance",
+      host: "docs.google.com",
+      path: "/document/approved-guidance",
+      title: "Approved guidance",
+      site: "gdoc",
+      tabs: [gmail, gdoc, sfdc],
+    },
+    m3: {
+      pill: "Building the sourced answer",
+      host: "docs.google.com",
+      path: "/document/northstar-answer",
+      title: "Northstar Systems answer",
+      site: "gdoc",
+      tabs: [gmail, gdoc, sfdc],
+    },
+    m4: {
+      pill: "Drafting the customer email",
+      host: "mail.google.com",
+      path: "/mail/u/0/#drafts",
+      title: "Drafts",
+      site: "gmail",
+      tabs: [gmail, gdoc, sfdc],
+    },
+    m5: {
+      pill: "Waiting for review",
+      host: "mail.google.com",
+      path: "/mail/u/0/#drafts",
+      title: "Drafts",
+      site: "gmail",
+      tabs: [gmail, gdoc, sfdc],
+    },
+  },
 };
 
 export function beatFor(

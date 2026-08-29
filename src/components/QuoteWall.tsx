@@ -16,9 +16,9 @@ export function QuoteWall() {
 
   return (
     <section id="testimonials" className="quotes">
-      <h2>Testimonials</h2>
+      <h2>Product proof</h2>
       <p className="section-lede">
-        Six reactions that capture the persistent-agent difference.
+        Public reactions to persistent agents with their own computers.
       </p>
       <div className="quote-thread">
         {featuredQuotes.map((quote) => (

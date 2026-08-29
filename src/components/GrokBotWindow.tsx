@@ -17,11 +17,14 @@ function initials(name: string) {
     .join("");
 }
 
-function isLight(hex?: string) {
-  if (!hex || !hex.startsWith("#") || hex.length < 7) return false;
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+function isLight(color?: string) {
+  if (!color) return false;
+  const oklch = color.match(/^oklch\(\s*(\d+(?:\.\d+)?)%/i);
+  if (oklch) return Number(oklch[1]) > 55;
+  if (!color.startsWith("#") || color.length < 7) return false;
+  const r = parseInt(color.slice(1, 3), 16);
+  const g = parseInt(color.slice(3, 5), 16);
+  const b = parseInt(color.slice(5, 7), 16);
   return (r * 299 + g * 587 + b * 114) / 1000 > 180;
 }
 
